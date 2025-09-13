@@ -1,12 +1,20 @@
-import { Text, View } from "react-native";
+import { offers } from "@/constants";
+import { FlatList, Pressable, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
- 
 export default function App() {
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-xl font-bold text-blue-500 font-quicksand-bold">
-        Welcome to Nativewind!
-      </Text>
-    </View>
+    <SafeAreaView>
+      <FlatList
+        data={offers}
+        renderItem={({ item }) => (
+          <View>
+            <Pressable className="bg-amber-600">
+              <Text>{item.title}</Text>
+            </Pressable>
+          </View>
+        )}
+      />
+    </SafeAreaView>
   );
 }
